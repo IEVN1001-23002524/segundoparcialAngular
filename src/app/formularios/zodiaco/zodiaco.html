@@ -58,7 +58,7 @@
                         formControlName="ano"
                         type="number"
                         id="ano"
-                        min="1990"
+                        min="1900"
                         max="2026"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
                         focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -108,4 +108,95 @@
         <h3 class="text-lg text-gray-900"> {{ horoscopo }} </h3>
         <img [src]="imagen" alt="Horoscopo" class="w-32 h-32">
     </div>
+    <div class="max-w-6xl mx-auto mt-8">
+ 
+  <h2 class="mb-4 text-2xl font-bold text-gray-900">
+    Lista de zodiacos
+  </h2>
+  <div
+    class="relative overflow-x-auto shadow-md sm:rounded-lg">
+ 
+    <table class="w-full text-sm text-left text-gray-500">
+ 
+      <!-- Encabezado -->
+      <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+ 
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Nombre
+          </th>
+ 
+          <th scope="col" class="px-6 py-3">
+            Apaterno
+          </th>
+ 
+          <th scope="col" class="px-6 py-3">
+            Amaterno
+          </th>
+ 
+          <th scope="col" class="px-6 py-3">
+            Fecha de nacimiento
+          </th>
+ 
+          <th scope="col" class="px-6 py-3">
+            Sexo
+          </th>
+        </tr>
+ 
+      </thead>
+ 
+      <!-- Datos -->
+      <tbody>
+ 
+        <tr *ngFor="let zodiaco1 of zodiacos let i = index"
+          class="bg-white border-b border-gray-200 hover:bg-gray-50"
+        >
+ 
+          <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            {{ zodiaco1.nombre }} 
+          </td>
+ 
+          <td class="px-6 py-4">
+            {{ zodiaco1.Apaterno }}
+          </td>
+ 
+          <td class="px-6 py-4">
+            {{ zodiaco1.Amaterno }}
+          </td>
+ 
+          <td class="px-6 py-4">
+            {{ zodiaco1.nacimiento }}
+          </td>
+
+        <td class="px-6 py-4">
+            {{ zodiaco1.sexo }}
+          </td>
+ 
+          <td class="px-6 py-4">
+ 
+            <div class="flex gap-2">
+ 
+              <!-- Botón Editar -->
+              <button
+                type="button"
+                class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300"
+                (click)="editarZodiaco(i)"
+              >
+                Editar
+              </button>
+ 
+              <!-- Botón Eliminar -->
+              <button
+                type="button"
+                class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300"
+                (click)="eliminarZodiaco(i)">
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>

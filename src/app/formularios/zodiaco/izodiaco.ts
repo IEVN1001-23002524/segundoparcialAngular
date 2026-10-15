@@ -6,5 +6,7 @@ export interface IZodiaco {
    mes: number;
    ano: number;
    sexo: string;
+   edad: number;
+   horoscopo: string;
 
 }
